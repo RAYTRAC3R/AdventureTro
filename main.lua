@@ -1,0 +1,34 @@
+local allFolders = { "none", "items" }
+
+local allFiles = { ["none"] = {}, ["items"] = { "Functions", "MainChars", "Decks" } }
+
+for i = 1, #allFolders do
+  if allFolders[i] == "none" then
+    for j = 1, #allFiles[allFolders[i]] do
+      assert(SMODS.load_file(allFiles[allFolders[i]][j] .. ".lua"))()
+    end
+  else
+    for j = 1, #allFiles[allFolders[i]] do
+      assert(SMODS.load_file(allFolders[i] .. "/" .. allFiles[allFolders[i]][j] .. ".lua"))()
+    end
+  end
+end
+
+G.C.ATTRO = {}
+
+G.C.ATTRO.MISC_COLOURS = {
+  NEUTRAL_GOOD = HEX("78C48A"),
+}
+
+local ref = Game.main_menu
+function Game:main_menu(change_context)
+  for k, v in pairs(G.P_CENTERS) do
+    if v.config and v.config.extra and type(v.config.extra) == "table" and v.config.extra.alignment_lawchaos == "neutral" and v.config.extra.alignment_goodevil == "good" then
+      v.set_badges = function(self, card, badges)
+        badges[#badges + 1] = create_badge(localize('neutral_good_badge'), G.C.ATTRO.MISC_COLOURS.NEUTRAL_GOOD,
+          G.C.WHITE, 1)
+      end
+    end
+  end
+  ref(self, change_context)
+end

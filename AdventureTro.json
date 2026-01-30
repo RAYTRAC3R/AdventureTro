@@ -1,0 +1,15 @@
+{
+    "id": "AdventureTro",
+    "name": "AdventureTro",
+    "display_name": "AdventureTro",
+    "author": ["RAYTRAC3R"],
+    "description": "Adventure Time modpack!",
+    "prefix": "attro",
+    "main_file": "main.lua",
+    "badge_colour": "EB0500",
+    "dependencies": [
+        "Steamodded (>=1.0.0~BETA-0319a-STEAMODDED)"
+    ],
+    "version": "1.0.0",
+    "priority": 2
+}
