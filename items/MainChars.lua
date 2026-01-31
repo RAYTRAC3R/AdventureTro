@@ -14,7 +14,7 @@ SMODS.Joker {
 	eternal_compat = true,
 	perishable_compat = true,
     cost = 2,
-    config = { extra = { Xmult_mod = 1, Xmult = 1, alignment_lawchaos = "neutral", alignment_goodevil = "good" }, },
+    config = { extra = { mult = 7, alignment_lawchaos = "neutral", alignment_goodevil = "good" }, },
     loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = { set = "Other", key = "neutral_good" }
 		local xmult_total = card.ability.extra.Xmult
