@@ -34,6 +34,14 @@ return {
 					"{C:inactive} while I try to think of a real one.) {}"
                 }
             },
+			j_attro_lady               = {
+                name = 'Lady Rainicorn',
+                text = {
+                    "Gains {C:chips}+#2#{} Chips if",
+                    "played hand contains a {C:attention}Straight{}",
+					"{C:inactive}(Currently {C:white,X:chips}+#1#{C:inactive} Chips){}"
+                }
+            },
         },
         Tag = {
         },

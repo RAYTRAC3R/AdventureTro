@@ -89,3 +89,34 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.Joker {
+    key = "lady",
+    pos = { x = 3, y = 0 },
+    rarity = 1,
+	atlas = 'MainChars',
+    blueprint_compat = true,
+	eternal_compat = true,
+	perishable_compat = true,
+    cost = 2,
+    config = { extra = { chips = 30, change = 10, alignment_lawchaos = "neutral", alignment_goodevil = "good" }, },
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "neutral_good" }
+		return { vars = { card.ability.extra.chips, card.ability.extra.change } }
+	end,
+    calculate = function(self, card, context)
+		count = 0
+		if context.before and next(context.poker_hands['Straight']) then
+			card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.change
+			return {
+				message = 'Upgraded!',
+				colour = G.C.RED
+				}    
+		end
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end,
+}
