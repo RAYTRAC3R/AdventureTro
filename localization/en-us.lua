@@ -26,6 +26,14 @@ return {
 					"{C:inactive}(Currently {C:white,X:chips}+#1#{C:inactive} Chips){}"
                 }
             },
+			j_attro_bubblegum               = {
+                name = 'Princess Bubblegum',
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                    "{C:inactive} (This is a placeholder effect {}",
+					"{C:inactive} while I try to think of a real one.) {}"
+                }
+            },
         },
         Tag = {
         },
@@ -37,12 +45,21 @@ return {
                     "character who is",
                     "good in a neutral way.",
                 }
+            },
+			lawful_neutral = {
+                name = 'Lawful Neutral',
+                text = {
+                    "A Joker depicting a",
+                    "character who is",
+                    "neutral in a lawful way.",
+                }
             }
         }
     },
     misc = {
         dictionary = {
             neutral_good_badge = "Neutral Good",
+			lawful_neutral_badge = "Lawful Neutral",
         },
         labels = {
         },

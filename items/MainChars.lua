@@ -66,3 +66,26 @@ SMODS.Joker {
         end
     end,
 }
+
+SMODS.Joker {
+    key = "bubblegum",
+    pos = { x = 2, y = 0 },
+    rarity = 1,
+	atlas = 'MainChars',
+    blueprint_compat = true,
+	eternal_compat = true,
+	perishable_compat = true,
+    cost = 2,
+    config = { extra = { mult = 4, alignment_lawchaos = "lawful", alignment_goodevil = "neutral" }, },
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "lawful_neutral" }
+        return { vars = { card.ability.extra.mult } }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end
+}
