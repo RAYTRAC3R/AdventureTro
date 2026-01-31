@@ -1,3 +1,10 @@
+SMODS.Atlas {
+  key = "modicon",
+  path = "AdventureTroIcon.png",
+  px = 34,
+  py = 34
+}
+
 local allFolders = { "none", "items" }
 
 local allFiles = { ["none"] = {}, ["items"] = { "Functions", "MainChars", "Decks" } }
