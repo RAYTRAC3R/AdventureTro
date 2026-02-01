@@ -42,6 +42,14 @@ return {
 					"{C:inactive}(Currently {C:white,X:chips}+#1#{C:inactive} Chips){}"
                 }
             },
+			j_attro_marceline               = {
+                name = 'Marceline',
+                text = {
+                    "Gains {X:mult,C:white} X#1# {} Mult per",
+                    "discarded {C:hearts}#3#{}",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+                }
+            },
         },
         Tag = {
         },
@@ -52,6 +60,14 @@ return {
                     "A Joker depicting a",
                     "character who is",
                     "good in a neutral way.",
+                }
+            },
+			chaotic_good = {
+                name = 'Chaotic Good',
+                text = {
+                    "A Joker depicting a",
+                    "character who is",
+                    "good in a chaotic way.",
                 }
             },
 			lawful_neutral = {
@@ -67,6 +83,7 @@ return {
     misc = {
         dictionary = {
             neutral_good_badge = "Neutral Good",
+			chaotic_good_badge = "Chaotic Good",
 			lawful_neutral_badge = "Lawful Neutral",
         },
         labels = {

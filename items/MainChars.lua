@@ -17,7 +17,6 @@ SMODS.Joker {
     config = { extra = { mult = 7, alignment_lawchaos = "neutral", alignment_goodevil = "good" }, },
     loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = { set = "Other", key = "neutral_good" }
-		local xmult_total = card.ability.extra.Xmult
 		return {vars = {card.ability.extra.mult, card.ability.extra.mult * #find_alignment_goodevil("good")}}
 	end,
     calculate = function(self, card, context)
@@ -119,4 +118,35 @@ SMODS.Joker {
             }
         end
     end,
+}
+
+SMODS.Joker {
+    key = "marceline",
+    pos = { x = 0, y = 1 },
+    rarity = 1,
+	atlas = 'MainChars',
+    blueprint_compat = true,
+	eternal_compat = true,
+	perishable_compat = true,
+    cost = 4,
+    config = { extra = { Xmult_gain = 0.25, Xmult = 1, suit = "Hearts", alignment_lawchaos = "chaotic", alignment_goodevil = "good" }, },
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "chaotic_good" }
+		return { vars = { card.ability.extra.Xmult_gain, card.ability.extra.Xmult, card.ability.extra.suit } }
+	end,
+    calculate = function(self, card, context)
+        if context.discard and context.other_card:is_suit(card.ability.extra.suit) and not context.other_card.debuff then
+            card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
+            return {
+                message = localize('k_upgrade_ex'),
+                colour = G.C.MULT,
+                message_card = card
+            }
+        end
+		if context.joker_main then
+            return {
+                xmult = card.ability.extra.Xmult
+            }
+        end
+    end
 }
