@@ -57,6 +57,14 @@ return {
                     "{C:mult}+#1#{} Mult",
                 }
             },
+			j_attro_flameprincess               = {
+                name = 'Flame Princess',
+                text = {
+                    "If played hand is a",
+                    "single {C:attention}face{} card,", 
+					"give it a {C:orange}#1#{} seal",
+                }
+            },
         },
         Tag = {
         },

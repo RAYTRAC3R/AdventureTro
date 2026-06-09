@@ -179,3 +179,26 @@ SMODS.Joker {
 		end
     end
 }
+
+SMODS.Joker {
+    key = "flameprincess",
+    pos = { x = 2, y = 1 },
+    rarity = 1,
+	atlas = 'MainChars',
+    blueprint_compat = true,
+	eternal_compat = true,
+	perishable_compat = true,
+    cost = 2,
+    config = { extra = { seal = "Fire", alignment_lawchaos = "chaotic", alignment_goodevil = "neutral" }, },
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "chaotic_neutral" }
+        return { vars = { card.ability.extra.seal } }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main and context.cardarea == G.jokers and context.scoring_hand and context.full_hand and #context.full_hand == 1 and context.scoring_hand[1]:is_face() then
+			context.scoring_hand[1]:set_seal("attro_" .. card.ability.extra.seal)
+			context.full_hand[1]:juice_up()
+			return true
+        end
+    end
+}
