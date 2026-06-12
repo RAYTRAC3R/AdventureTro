@@ -65,6 +65,22 @@ return {
 					"give it a {C:orange}#1#{} seal",
                 }
             },
+			j_attro_lemonblack               = {
+                name = 'Lemongrab 1',
+                text = {
+                    "Each {C:attention}Jack{} or ",
+                    "{C:attention}King{} held in hand",
+                    "gives {C:mult}+#1#{} Mult",
+                }
+            },
+			j_attro_lemonwhite               = {
+                name = 'Lemongrab 2',
+                text = {
+                    "Each {C:attention}Jack{} or ",
+                    "{C:attention}Queen{} held in hand",
+                    "gives {C:mult}+#1#{} Mult",
+                }
+            },
         },
         Tag = {
         },
@@ -100,15 +116,33 @@ return {
                     "character who is",
                     "neutral in a chaotic way.",
                 }
+            },
+			lawful_evil = {
+                name = 'Lawful Evil',
+                text = {
+                    "A Joker depicting a",
+                    "character who is",
+                    "evil in a lawful way.",
+                }
+            },
+			lawful_good = {
+                name = 'Lawful Good',
+                text = {
+                    "A Joker depicting a",
+                    "character who is",
+                    "good in a lawful way.",
+                }
             }
         }
     },
     misc = {
         dictionary = {
+			lawful_good_badge = "Lawful Good",
             neutral_good_badge = "Neutral Good",
 			chaotic_good_badge = "Chaotic Good",
 			lawful_neutral_badge = "Lawful Neutral",
 			chaotic_neutral_badge = "Chaotic Neutral",
+			lawful_evil_badge = "Lawful Evil",
         },
         labels = {
         },

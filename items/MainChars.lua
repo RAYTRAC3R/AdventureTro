@@ -202,3 +202,85 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.Joker {
+    key = "lemonblack",
+    pos = { x = 3, y = 1 },
+    rarity = 1,
+	atlas = 'MainChars',
+    blueprint_compat = true,
+	eternal_compat = true,
+	perishable_compat = true,
+    cost = 4,
+    config = { extra = { mult = 7, alignment_lawchaos = "lawful", alignment_goodevil = "evil" }, },
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "lawful_evil" }
+		return { vars = { card.ability.extra.mult } }
+	end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and context.other_card:get_id() == 11 then
+            if context.other_card.debuff then
+                return {
+                    message = localize('k_debuffed'),
+                    colour = G.C.RED
+                }
+            else
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+		elseif context.individual and context.cardarea == G.hand and not context.end_of_round and context.other_card:get_id() == 13 then
+			if context.other_card.debuff then
+                return {
+                    message = localize('k_debuffed'),
+                    colour = G.C.RED
+                }
+            else
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+        end
+    end,
+}
+
+SMODS.Joker {
+    key = "lemonwhite",
+    pos = { x = 0, y = 2 },
+    rarity = 1,
+	atlas = 'MainChars',
+    blueprint_compat = true,
+	eternal_compat = true,
+	perishable_compat = true,
+    cost = 4,
+    config = { extra = { mult = 7, alignment_lawchaos = "lawful", alignment_goodevil = "good" }, },
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = { set = "Other", key = "lawful_good" }
+		return { vars = { card.ability.extra.mult } }
+	end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and context.other_card:get_id() == 11 then
+            if context.other_card.debuff then
+                return {
+                    message = localize('k_debuffed'),
+                    colour = G.C.RED
+                }
+            else
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+		elseif context.individual and context.cardarea == G.hand and not context.end_of_round and context.other_card:get_id() == 12 then
+			if context.other_card.debuff then
+                return {
+                    message = localize('k_debuffed'),
+                    colour = G.C.RED
+                }
+            else
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+        end
+    end,
+}
